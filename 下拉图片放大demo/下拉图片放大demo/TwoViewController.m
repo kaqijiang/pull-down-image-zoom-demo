@@ -48,6 +48,10 @@ NSString *const cellId = @"cellId";
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:headView.bounds];
     imageView.backgroundColor = [UIColor hm_colorWithHex:0x000033];
     [headView addSubview:imageView];
+    
+    //设置网络图片 用yy_WebImage 因为 AFN大图不缓存， SDWebImage 没有指示器。
+    NSURL *url = [[NSURL alloc]initWithString:@"http://c.hiphotos.baidu.com/zhidao/pic/item/3bf33a87e950352afcc234985243fbf2b3118bfa.jpg"];
+    [imageView yy_setImageWithURL:url options:YYWebImageOptionShowNetworkActivity];
 }
 //修改状态栏的状态 浅色
 - (UIStatusBarStyle)preferredStatusBarStyle {
