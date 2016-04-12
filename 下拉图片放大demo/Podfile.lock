@@ -1,4 +1,5 @@
 PODS:
+  - HMObjcSugar (0.0.6)
   - YYCache (1.0.3)
   - YYImage (1.0.1):
     - YYImage/Core (= 1.0.1)
@@ -8,9 +9,11 @@ PODS:
     - YYImage
 
 DEPENDENCIES:
+  - HMObjcSugar
   - YYWebImage
 
 SPEC CHECKSUMS:
+  HMObjcSugar: 958eb251bbc1002a1d7f0cafa7c040183d2f2a74
   YYCache: 282f35b5b0990833d0b7a06d864a87141a021da2
   YYImage: b41b45bc5f32bfcdf67bdfb9c09da9e9832357c0
   YYWebImage: 8da75a611fd0d2e0f58a273f9ca0bc731614cb0d

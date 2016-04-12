@@ -84,11 +84,13 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-下拉图片放大demo/HMObjcSugar.framework"
   install_framework "Pods-下拉图片放大demo/YYCache.framework"
   install_framework "Pods-下拉图片放大demo/YYImage.framework"
   install_framework "Pods-下拉图片放大demo/YYWebImage.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-下拉图片放大demo/HMObjcSugar.framework"
   install_framework "Pods-下拉图片放大demo/YYCache.framework"
   install_framework "Pods-下拉图片放大demo/YYImage.framework"
   install_framework "Pods-下拉图片放大demo/YYWebImage.framework"

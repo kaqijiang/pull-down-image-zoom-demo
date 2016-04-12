@@ -7,9 +7,10 @@
 //
 
 #import "TwoViewController.h"
+#import "UIImageView+YYWebImage.h"
 
 NSString *const cellId = @"cellId";
-
+#define HEADERHEIGHT 200
 @interface TwoViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
@@ -41,12 +42,17 @@ NSString *const cellId = @"cellId";
     //注册tableView
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellId];
     [self.view addSubview:tableView];
+    //设置tableView的contentInset
+    tableView.contentInset = UIEdgeInsetsMake(HEADERHEIGHT, 0, 0, 0);
+    tableView.scrollIndicatorInsets = UIEdgeInsetsMake(HEADERHEIGHT, 0, 0, 0);
 }
 //HeaderView
 - (void)prepareHeaderView {
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
+    //创建一个视图
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, HEADERHEIGHT)];
     view.backgroundColor = [UIColor blueColor];
     [self.view addSubview:view];
+    
     
 }
 #pragma mark- TableView的代理方法

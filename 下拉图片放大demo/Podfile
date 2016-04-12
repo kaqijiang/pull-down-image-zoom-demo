@@ -6,5 +6,6 @@
 target '下拉图片放大demo' do
 
 pod 'YYWebImage'
+pod 'HMObjcSugar'
 end
 

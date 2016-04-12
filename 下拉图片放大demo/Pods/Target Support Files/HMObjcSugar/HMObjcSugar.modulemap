@@ -1,0 +1,6 @@
+framework module HMObjcSugar {
+  umbrella header "HMObjcSugar-umbrella.h"
+
+  export *
+  module * { export * }
+}
