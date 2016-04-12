@@ -22,6 +22,7 @@ NSString *const cellId = @"cellId";
     UIView              *_headView;
     UIImageView         *_headImageView;
     UIStatusBarStyle    _statusBarStyle;
+    UIView              *_lineView;
 }
 
 - (void)viewDidLoad {
@@ -60,6 +61,12 @@ NSString *const cellId = @"cellId";
     _headImageView.clipsToBounds = YES;
     [_headView addSubview:_headImageView];
     
+    //添加分割线  宽度一个像素的点
+    CGFloat lineHeight = 1 / [UIScreen mainScreen].scale;
+    //创建分割线
+    _lineView = [[UIView alloc]initWithFrame:CGRectMake(0, HEADERHEIGHT - lineHeight, _headView.hm_width, lineHeight)];
+    _lineView.backgroundColor = [UIColor lightGrayColor];
+    [_headView addSubview:_lineView];
     
     //设置网络图片 用yy_WebImage 因为 AFN大图不缓存， SDWebImage 没有指示器。
     NSURL *url = [[NSURL alloc]initWithString:@"http://c.hiphotos.baidu.com/zhidao/pic/item/3bf33a87e950352afcc234985243fbf2b3118bfa.jpg"];
@@ -105,13 +112,11 @@ NSString *const cellId = @"cellId";
         
         //OC语法糖
         _headView.hm_height = HEADERHEIGHT - offset;//正减负 等于正加正
-        _headImageView.hm_height = _headView.hm_height;
         _headImageView.alpha = 1;
     } else {
     //整体移动
         
         _headView.hm_height = HEADERHEIGHT;
-        _headImageView.hm_height = _headView.hm_height;
         //Y的最小值，
         CGFloat min = HEADERHEIGHT - 64;
         //移动
@@ -124,5 +129,8 @@ NSString *const cellId = @"cellId";
         [self.navigationController setNeedsStatusBarAppearanceUpdate];
         
     }
+        _headImageView.hm_height = _headView.hm_height;
+    //设置分割线跟随图片移动
+        _lineView.hm_y = _headView.hm_y - _lineView.hm_height;
 }
 @end
