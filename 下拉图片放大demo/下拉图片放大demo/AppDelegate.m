@@ -25,7 +25,7 @@
 
     //设置window rootViewController
     MainViewController *MainVc = [[MainViewController alloc]init];
-    
+    //设置根nav
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:MainVc];
     self.window.rootViewController = nav;
     //设置根控制器并显示
