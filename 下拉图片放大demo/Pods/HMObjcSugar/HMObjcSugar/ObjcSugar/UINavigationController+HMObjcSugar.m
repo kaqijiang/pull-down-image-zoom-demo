@@ -18,15 +18,15 @@
 @implementation HMFullScreenPopGestureRecognizerDelegate
 
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
-    
+    // 判断是否是根控制器，如果是，取消手势
     if (self.navigationController.viewControllers.count <= 1) {
         return NO;
     }
-    
+    // 如果正在转场动画，取消手势
     if ([[self.navigationController valueForKey:@"_isTransitioning"] boolValue]) {
         return NO;
     }
-    
+     // 判断手指移动方向
     CGPoint translation = [gestureRecognizer translationInView:gestureRecognizer.view];
     if (translation.x <= 0) {
         return NO;

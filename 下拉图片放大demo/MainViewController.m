@@ -30,9 +30,12 @@
 - (void)next {
     //push 控制器
     [self.navigationController pushViewController:[[TwoViewController alloc]init] animated:YES];
-    
 }
-
+//视图将要加载的时候
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
 
 
 @end
