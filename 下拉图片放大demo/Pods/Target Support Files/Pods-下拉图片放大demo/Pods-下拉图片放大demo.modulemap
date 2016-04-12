@@ -1,0 +1,6 @@
+framework module Pods_______demo {
+  umbrella header "Pods-下拉图片放大demo-umbrella.h"
+
+  export *
+  module * { export * }
+}
