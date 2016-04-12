@@ -29,6 +29,9 @@ NSString *const cellId = @"cellId";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    //取消自动调整滚动视图的间距  UIViewController + Nav 会自动调整tabview的contentinset
+    self.automaticallyAdjustsScrollViewInsets = NO;
     //视图将要显示的时候隐藏nav
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
@@ -50,10 +53,14 @@ NSString *const cellId = @"cellId";
 - (void)prepareHeaderView {
     //创建一个视图
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, HEADERHEIGHT)];
-    view.backgroundColor = [UIColor blueColor];
+    view.backgroundColor = [UIColor blackColor];
     [self.view addSubview:view];
     
     
+}
+//修改状态栏的状态 浅色
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 #pragma mark- TableView的代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
