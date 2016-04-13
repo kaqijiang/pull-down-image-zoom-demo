@@ -1,6 +1,7 @@
 # pull-down-image-zoom-demo
 # 下拉放大图片Demo
 
+
 # 此demo 做了一些产品层次的细节处理。
 
 # 此demo依赖于 刀哥 语法糖 框架
@@ -16,3 +17,4 @@
 ![image](http://github.com/kaqijiang/pull-down-image-zoom-demo/raw/master/image_folder/demo.png)
 
 ![image](http://github.com/kaqijiang/pull-down-image-zoom-demo/raw/master/image_folder/demo1.gif)
+
