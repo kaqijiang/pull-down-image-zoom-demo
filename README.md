@@ -15,7 +15,7 @@
 
 #图1
 
-![image](http://github.com/kaqijiang/pull-down-image-zoom-demo/raw/master/image/demo.png)
+![image](https://github.com/kaqijiang/pull-down-image-zoom-demo/raw/master/image/demo.png)
 
-![image](http://github.com/kaqijiang/pull-down-image-zoom-demo/raw/master/image/demo1.gif)
+![image](https://github.com/kaqijiang/pull-down-image-zoom-demo/raw/master/image/demo1.gif)
 
