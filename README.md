@@ -14,7 +14,8 @@
 # 6、拖拽返回的时候，取消
 
 #图1
-![image](http://github.com/kaqijiang/pull-down-image-zoom-demo/raw/master/image_folder/demo.png)
 
-![image](http://github.com/kaqijiang/pull-down-image-zoom-demo/raw/master/image_folder/demo1.gif)
+![image](http://github.com/kaqijiang/pull-down-image-zoom-demo/raw/master/image/demo.png)
+
+![image](http://github.com/kaqijiang/pull-down-image-zoom-demo/raw/master/image/demo1.gif)
 
