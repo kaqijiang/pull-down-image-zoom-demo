@@ -20,8 +20,9 @@
     [super viewDidLoad];
     
     UIView *view = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    view.backgroundColor = [UIColor greenColor];
+    view.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:view];
+
     //设置UIBarButton 并监听
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"推出" style:UIBarButtonItemStylePlain target:self action:@selector(next)];
     

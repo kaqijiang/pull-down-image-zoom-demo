@@ -10,6 +10,7 @@
 #import "UIImageView+YYWebImage.h"
 //OC语法糖
 #import "HMObjcSugar.h"
+#import "MainViewController.h"
 
 
 NSString *const cellId = @"cellId";
@@ -23,6 +24,8 @@ NSString *const cellId = @"cellId";
     UIImageView         *_headImageView;
     UIStatusBarStyle    _statusBarStyle;
     UIView              *_lineView;
+    UIView              *_view;
+    CGFloat             _lineHeight;
 }
 
 - (void)viewDidLoad {
@@ -33,8 +36,26 @@ NSString *const cellId = @"cellId";
     [self prepareTableView];
     //HeaderView
     [self prepareHeaderView];
+   
     //状态栏的颜色
     _statusBarStyle = UIStatusBarStyleLightContent;
+    
+    //添加一个view 代替NAV 
+    _view = [[UIView alloc]initWithFrame:CGRectMake(0, 20, self.view.hm_width, 44 )];
+    _view.alpha = 0;
+    [self.view addSubview:_view];
+    
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(12, 0, 40, 20)];
+    btn.hm_y = _view.hm_height * 0.5  - 10 ;
+    [btn setTitle:@"返回" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [_view addSubview: btn];
+    [btn addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
+}
+//返回控制器
+- (void)backViewController {
+
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -51,6 +72,7 @@ NSString *const cellId = @"cellId";
     _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, HEADERHEIGHT)];
     _headView.backgroundColor = [UIColor hm_colorWithHex:0xF8F8F8];
     [self.view addSubview:_headView];
+    
     //创建图片视图
     _headImageView = [[UIImageView alloc]initWithFrame:_headView.bounds];
     _headImageView.backgroundColor = [UIColor hm_colorWithHex:0x000033];
@@ -62,9 +84,9 @@ NSString *const cellId = @"cellId";
     [_headView addSubview:_headImageView];
     
     //添加分割线  宽度一个像素的点
-    CGFloat lineHeight = 1 / [UIScreen mainScreen].scale;
+    _lineHeight = 1 ;
     //创建分割线
-    _lineView = [[UIView alloc]initWithFrame:CGRectMake(0, HEADERHEIGHT - lineHeight, _headView.hm_width, lineHeight)];
+    _lineView = [[UIView alloc]initWithFrame:CGRectMake(0, HEADERHEIGHT - _lineHeight, _headView.hm_width, _lineHeight)];
     _lineView.backgroundColor = [UIColor lightGrayColor];
     [_headView addSubview:_lineView];
     
@@ -128,9 +150,11 @@ NSString *const cellId = @"cellId";
         //状态栏颜色记得跟新状态
         [self.navigationController setNeedsStatusBarAppearanceUpdate];
         
+        //判断自定义代替导航栏的view 是否隐藏
+        _view.alpha = (_headView.hm_y == -min) ? 1 :0;
     }
         _headImageView.hm_height = _headView.hm_height;
     //设置分割线跟随图片移动
-        _lineView.hm_y = _headView.hm_y - _lineView.hm_height;
+    _lineView.hm_y = CGRectGetMaxY(_headView.bounds);
 }
 @end
