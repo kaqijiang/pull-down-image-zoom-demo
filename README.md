@@ -14,9 +14,9 @@
  
  4、用view取一个屏幕点为宽，设置图片跟TableView的分割线效果
  
- 5、中心拖拽返回，上一个界面。（运用运行时交叉方法，动态添加属性方法）
+ 5、中心拖拽返回上一个界面。（运用运行时交叉方法，动态添加属性方法）
  
- 6、拖拽返回的时候，取消
+
 
 #图1
 ![image](https://github.com/kaqijiang/pull-down-image-zoom-demo/raw/master/image/demo.png)
